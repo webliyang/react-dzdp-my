@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import RouterMap from './router/routerMap'
+import './index.css';
+// import App from './App';
+import App from './App.jsx';
 import { hashHistory } from 'react-router'
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux'
 import configureStroe from './store/configureStore'
-import './static/css/common.less'
-import './static/css/font.css'
-// import './App.less'
+import './App.less'
  // eslint-disable-next-line
 //  if(__DEV__){
 //     window.Perf = Perf;
@@ -16,7 +15,7 @@ import './static/css/font.css'
 const store = configureStroe();
 ReactDOM.render(
     <Provider store={store}>
-        <RouterMap  history={hashHistory} />
+        <App  history={hashHistory} />
     </Provider>,
      document.getElementById('root'));
 

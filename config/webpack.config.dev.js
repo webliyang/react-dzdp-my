@@ -157,7 +157,7 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: /\.css$/,
+            test: /\.(css|less)$/,
             use: [
               require.resolve('style-loader'),
               {
@@ -186,6 +186,9 @@ module.exports = {
                   ],
                 },
               },
+              {
+                loader: require.resolve('less-loader') // compiles Less to CSS
+              }
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
@@ -193,6 +196,11 @@ module.exports = {
           // In production, they would get copied to the `build` folder.
           // This loader doesn't use a "test" so it will catch all modules
           // that fall through the other loaders.
+          {
+            test: /\.(png|woff|woff2|svg|ttf|eot)$/,
+            include: paths.appSrc,
+            loader: require.resolve('url-loader')
+          },
           {
             // Exclude `js` files to keep "css" loader working as it injects
             // it's runtime that would otherwise processed through "file" loader.

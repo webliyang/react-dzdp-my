@@ -8,7 +8,7 @@ class Home extends React.Component {
         return (
             <div>
                 <p>{this.props.userinfo.name}</p>
-                <p>Home</p>
+                <p className="less-Test">Home</p>
                 <p>{this.props.userinfo.city}</p>
                 <Link to="/list">to list</Link>
             </div>
