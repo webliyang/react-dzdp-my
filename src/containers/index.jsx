@@ -13,13 +13,11 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <header>header:{this.props.userinfo.cityName}</header>
                 {
                     this.state.initDone ?
                         this.props.children :
                         <div>loadding</div>
                 }
-                <footer>footer</footer>
             </div>
         )
     }
